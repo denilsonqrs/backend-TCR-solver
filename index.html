@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congruence Solver</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7fc;
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen text-slate-800">
+
+    <nav class="bg-white border-b border-gray-200 px-6 py-3 flex items-center justify-between sticky top-0 z-10">
+        <div class="flex items-center gap-2">
+            <div class="text-blue-500 text-2xl"><i class="fas fa-cog"></i><span class="text-sm align-top">%</span></div>
+            <span class="font-semibold text-lg">Congruence Solver</span>
+        </div>
+        <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
+            <a href="#" class="hover:text-blue-600 flex items-center gap-2"><i class="fas fa-home"></i> Home</a>
+            <a href="#" class="text-blue-600 bg-blue-50 px-3 py-1.5 rounded-md flex items-center gap-2"><i class="fas fa-square-root-variable"></i> Solver</a>
+        </div>
+        <div class="flex items-center gap-4 text-gray-500">
+            <button class="hover:text-gray-800"><i class="fas fa-sign-in-alt"></i></button>
+            <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-sm font-semibold text-gray-600">U</div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-2 gap-6 relative">
+
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+            <h2 class="text-lg font-bold mb-1">Solocionador de Sistemas De Congruencia
+            </h2>
+            <p class="text-sm text-gray-500 mb-6">Escreva suas Congruencias Lineares.</p>
+
+            <div class="space-y-3 mb-4">
+                <div class="flex items-center justify-between border border-gray-200 rounded-lg p-3 bg-gray-50">
+                    <span class="text-sm text-gray-700">Equation 1: $ax + b \equiv c \pmod{n}$</span>
+                    <div class="flex gap-2 text-gray-400">
+                        <button class="hover:text-red-500"><i class="fas fa-trash-alt"></i></button>
+                        <button class="hover:text-gray-600"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between border border-gray-200 rounded-lg p-3 bg-gray-50">
+                    <span class="text-sm text-gray-700">Equation 2: $3x - 1 \equiv 0 \pmod{4}$</span>
+                    <div class="flex gap-2 text-gray-400">
+                        <button class="hover:text-red-500"><i class="fas fa-trash-alt"></i></button>
+                        <button class="hover:text-gray-600"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between border border-gray-200 rounded-lg p-3 bg-gray-50">
+                    <span class="text-sm text-gray-700">Equation 3: $x - 11 \equiv 1 \pmod{n}$</span>
+                    <div class="flex gap-2 text-gray-400">
+                        <button class="hover:text-red-500"><i class="fas fa-trash-alt"></i></button>
+                        <button class="hover:text-gray-600"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between border border-gray-200 rounded-lg p-3 bg-gray-50 opacity-60">
+                    <span class="text-sm text-gray-500">Equation 4: $x \equiv 11 \equiv 8 \pmod{n}$</span>
+                    <div class="flex gap-2 text-gray-400">
+                        <button><i class="fas fa-trash-alt"></i></button>
+                        <button><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-end mb-6">
+                <button class="px-4 py-1.5 border border-gray-300 rounded-md text-sm font-medium hover:bg-gray-50">Check & Simplify</button>
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-sm text-gray-700 mb-2">Paste or type system of linear congruences, (mod 5):</label>
+                <textarea class="w-full border border-gray-300 rounded-lg p-3 text-sm h-28 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none" placeholder="2x = 3 (mod 5)&#10;3x - 1 = 0 (mod 4)&#10;x = 11 (mod 13)"></textarea>
+            </div>
+
+            <div class="grid grid-cols-4 gap-4 mb-4">
+                <div>
+                    <label class="block text-xs text-gray-500 mb-1">a</label>
+                    <input type="text" placeholder="a" class="w-full border border-gray-300 rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                    <label class="block text-xs text-gray-500 mb-1">x</label>
+                    <input type="text" placeholder="b" class="w-full border border-gray-300 rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                    <label class="block text-xs text-gray-500 mb-1">b</label>
+                    <input type="text" placeholder="c" class="w-full border border-gray-300 rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                    <label class="block text-xs text-gray-500 mb-1">n</label>
+                    <input type="text" placeholder="n" class="w-full border border-gray-300 rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <label class="block text-sm text-gray-700 mb-2">Input in free text form:</label>
+                <textarea class="w-full border border-gray-300 rounded-lg p-3 text-sm h-16 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none" placeholder="Input in free text form"></textarea>
+            </div>
+
+            <div class="flex gap-4">
+                <button class="flex-1 px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium hover:bg-gray-50">Check & Simplify</button>
+                <button onclick="resolverTCR()" class="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 shadow-sm flex items-center justify-center gap-2">Solve <i class="fas fa-mouse-pointer text-xs opacity-70"></i></button>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 flex flex-col">
+            <h2 class="text-lg font-bold mb-1">Solution Steps</h2>
+            <p class="text-sm text-gray-500 mb-6">Solution will be displayed here</p>
+
+            <div class="space-y-3 flex-1">
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <div class="bg-gray-50 p-3 flex justify-between items-center cursor-pointer text-sm font-medium text-gray-700 border-b border-gray-200">
+                        <span>Step 1: Check pair-wise GCDs</span>
+                        <i class="fas fa-chevron-up text-gray-400"></i>
+                    </div>
+                    <div class="p-4 text-sm font-serif flex gap-12 bg-white">
+                        <div>
+                            <p>$\gcd(m_1, m_1) = 2 (m_3)$</p>
+                            <p>$\gcd(m_2, m_j) = 2 (m_3)$</p>
+                            <p>$\gcd(m_3, m_j) = 2 (m_3)$</p>
+                        </div>
+                        <div>
+                            <p>$\gcd(m_1, m_j) = 2 (m_3)$</p>
+                            <p>$\gcd(m_2, m_j) = 2 (m_{30})$</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <div class="bg-gray-50 p-3 flex justify-between items-center cursor-pointer text-sm font-medium text-gray-700 border-b border-gray-200">
+                        <span>Step 2: Simplify individual congruences</span>
+                        <i class="fas fa-chevron-up text-gray-400"></i>
+                    </div>
+                    <div class="p-4 text-sm bg-white font-serif">
+                        <p>$2x = 3 \pmod{5} \rightarrow$ transformative to canonical form</p>
+                        <p>$3x - 1 \equiv 0 \pmod{4} \rightarrow$ Consoitr to canonical form</p>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <div class="bg-gray-50 p-3 flex justify-between items-center cursor-pointer text-sm font-medium text-gray-700 border-b border-gray-200">
+                        <span>Step 3: Solve modular inverses</span>
+                        <i class="fas fa-chevron-up text-gray-400"></i>
+                    </div>
+                    <div class="p-4 text-sm bg-white font-serif">
+                        <p>$x = 11 \pmod{13} \rightarrow$ computative modular inverses</p>
+                        <p>$x = \frac{1}{2} \cdot \dots \pmod{13} \rightarrow$ Computação to modular inverses</p>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <div class="bg-gray-50 p-3 flex justify-between items-center cursor-pointer text-sm font-medium text-gray-700">
+                        <span>Step 4: Compute the modular product</span>
+                        <i class="fas fa-chevron-down text-gray-400"></i>
+                    </div>
+                </div>
+
+                <div class="border border-green-300 rounded-lg overflow-hidden mt-4">
+                    <div class="bg-green-100 p-3 flex justify-between items-center text-sm font-medium text-green-800 border-b border-green-300">
+                        <span>Final Solution: $x \equiv [\text{Result}] \pmod{[\text{LCM}]}$</span>
+                        <div class="flex items-center gap-2">
+                            <span>Success</span>
+                            <i class="fas fa-chevron-up text-green-700"></i>
+                        </div>
+                    </div>
+                    <div class="p-4 text-sm bg-green-50 text-center font-serif text-green-900">
+                        <p id="texto-resultado">$x \equiv [\text{Result}] \pmod{[\text{LCM}]}$</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="w-full mt-6 px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium hover:bg-gray-50">Clear All</button>
+        </div>
+
+    </main>
+
+    <div class="fixed bottom-4 right-4 bg-white border border-gray-200 rounded-full px-4 py-1.5 shadow-sm text-xs font-medium text-gray-700 flex items-center gap-2">
+        System Status: <span class="text-green-600">Ready</span> <span class="w-2.5 h-2.5 bg-green-500 rounded-full inline-block"></span>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

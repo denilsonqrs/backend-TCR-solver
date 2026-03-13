@@ -68,7 +68,8 @@ def calcula_inversos(remains, mods, passos):
     for i in range(len(remains)):
         _, x, _ = euclides_estendido(remains[i], mods[i])
         if x > 0:
-           all_d.append(x)
+            all_d.append(x)
+            passos["passo4"].append(f"${remains[i]} \\cdot d_{{i+1}} \\equiv 1 \\pmod{{{mods[i]}}} \\rightarrow d_{{i+1}} = {x}$")
         else:
             all_d.append(x+mods[i])
             passos["passo4"].append(f"${remains[i]} \\cdot d_{{i+1}} \\equiv 1 \\pmod{{{mods[i]}}} \\rightarrow d_{{i+1}} = {x + mods[i]}$")

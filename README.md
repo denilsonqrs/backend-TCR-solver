@@ -55,6 +55,6 @@ Com o servidor rodando, abra o arquivo index.html diretamento no seu navegador.
 ## 👨‍💻 Autores
 
 * Denilson Quaresma - https://github.com/denilsonqrs
-* Arthur Vinicius -
+* Arthur Vinicius - https://github.com/Avzinn-13
 
 # ⌨️ Desenvolvido com dedicação para facilitar cálculos de Álgebra e Matemática Discreta.
